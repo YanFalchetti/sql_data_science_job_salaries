@@ -500,7 +500,7 @@ INSERT INTO 'ds_salaries' ('id','work_year','experience_level','employment_type'
  ('497','2022','SE','FT','Data Scientist','165000','USD','165000','US','100','US','M'), 
  ('498','2022','SE','FT','Research Scientist','85000','EUR','93427','FR','50','FR','L'), 
  ('499','2022','EN','FT','Data Scientist','66500','CAD','52396','CA','100','CA','L');
-INSERT INTO 'ds_salaries' ('','work_year','experience_level','employment_type','job_title','salary','salary_currency','salary_in_usd','employee_residence','remote_ratio','company_location','company_size') VALUES 
+INSERT INTO 'ds_salaries' ('id','work_year','experience_level','employment_type','job_title','salary','salary_currency','salary_in_usd','employee_residence','remote_ratio','company_location','company_size') VALUES 
  ('500','2022','SE','FT','Machine Learning Engineer','57000','EUR','62651','NL','100','NL','L'), 
  ('501','2022','MI','FT','Head of Data','30000','EUR','32974','EE','100','EE','S'), 
  ('502','2022','EN','FT','Data Scientist','40000','USD','40000','JP','100','MY','L'), 
