@@ -640,7 +640,7 @@ INSERT INTO 'ds_salaries' ('','work_year','experience_level','employment_type','
 */
  
  -- Consult the database
- SELECT
+SELECT
 *
 FROM ds_salaries
 
@@ -653,8 +653,8 @@ WHERE remote_ratio = 100
 -- Descriptive analysis by country of headquarters or contracting branch of the employer in remote work
 SELECT
 DISTINCT company_location
-, MIN (salary_in_usd) as lower_salary
-, MAX (salary_in_usd) As higher_salary
+, MIN (salary_in_usd) AS lower_salary
+, MAX (salary_in_usd) AS higher_salary
 , AVG (salary_in_usd) AS average_salary
 FROM ds_salaries
 WHERE remote_ratio = 100 
@@ -671,7 +671,7 @@ WHERE remote_ratio = 100
 -- TOP10 highest average salary per job fully remote
 SELECT
 DISTINCT job_title
-, AVG (salary_in_usd) as average_salary
+, AVG (salary_in_usd) AS average_salary
 FROM ds_salaries
 WHERE remote_ratio = 100
 GROUP BY job_title
@@ -681,12 +681,12 @@ LIMIT 10
 -- Average salary per total amount of work done remotely
 SELECT
 DISTINCT remote_ratio
-, COUNT (work_year) as employees
-, MIN (salary_in_usd) as lower_salary
-, MAX (salary_in_usd) As higher_salary
+, COUNT (work_year) AS employees
+, MIN (salary_in_usd) AS lower_salary
+, MAX (salary_in_usd) AS higher_salary
 , AVG (salary_in_usd) AS average_salary
 FROM ds_salaries
-GROUP by remote_ratio
+GROUP BY remote_ratio
 ORDER BY remote_ratio
 LIMIT 10
 
@@ -695,7 +695,7 @@ SELECT
 DISTINCT job_title
 FROM ds_salaries
 WHERE remote_ratio = 100
-and experience_level = 'EN'
+AND experience_level = 'EN'
 
 -- Highest average salary per job fully remote and Entry-level experience
 SELECT
@@ -703,7 +703,7 @@ DISTINCT job_title
 , AVG (salary_in_usd)
 FROM ds_salaries
 WHERE remote_ratio = 100
-	and experience_level = 'EN'
+	AND experience_level = 'EN'
 GROUP BY job_title
 ORDER BY salary_in_usd DESC
 
@@ -723,12 +723,12 @@ WHERE employee_residence = 'BR'
 SELECT
 DISTINCT experience_level
 , COUNT (work_year) AS employees
-, MIN (salary_in_usd) as min_salary
-, MAX (salary_in_usd) as max_salary
-, AVG (salary_in_usd) as average_salary
+, MIN (salary_in_usd) AS min_salary
+, MAX (salary_in_usd) AS max_salary
+, AVG (salary_in_usd) AS average_salary
 FROM ds_salaries
 WHERE remote_ratio = 100
-	and company_size is NOT 'L'
-	and experience_level is not 'EX'
+	AND company_size IS NOT 'L'
+	AND experience_level IS not 'EX'
 GROUP BY experience_level
 ORDER BY salary_in_usd DESC
